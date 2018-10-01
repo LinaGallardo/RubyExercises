@@ -1,2 +1,2 @@
 # RubyExercises
-Ejercicios prácticos de ruby 
+Ruby's practical exercises
