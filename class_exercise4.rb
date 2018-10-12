@@ -21,5 +21,38 @@ class Palindromo
 
 end
 
-number = Palindromo.new(999)
-puts number.palindromic
+#----------------Test------------------
+
+require 'minitest/autorun'
+
+class PalindromoTest < Minitest::Test
+
+  def setup
+    @number = Palindromo.new(999)
+  end
+
+  def test_instance_of_palindromo
+    assert_instance_of(Palindromo, @number)
+  end
+
+  def test_palindromic
+    assert_equal(906609, @number.palindromic)
+  end
+
+end
+
+#----------------TestSpecs------------------
+
+describe Palindromo do
+
+  before do
+    @num = Palindromo.new(300)
+  end
+
+  describe "when insert a number of 3-digit" do
+    it "must gets the result of largest palindrome of the product of two number 3-digit" do
+      @num.palindromic.must_equal 84348
+    end
+  end
+
+end
