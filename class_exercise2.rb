@@ -18,5 +18,37 @@ class Fibonacci
 
 end
 
-fibonacci = Fibonacci.new(1000)
-puts fibonacci.fibonacci_even
+#----------------Test------------------
+
+require 'minitest/autorun'
+
+class FibonacciTest < Minitest::Test
+
+  def setup
+    @number = Fibonacci.new(10)
+  end
+
+  def test_instance_of_fobonacci
+    assert_instance_of(Fibonacci, @number)
+  end
+
+  def test_fibonacci_even
+    assert_equal(44, @number.fibonacci_even)
+  end
+
+end
+
+#----------------TestSpecs------------------
+describe Fibonacci do
+
+  before do
+    @num = Fibonacci.new(10)
+  end
+
+  describe "when insert a limit" do
+    it "must gets the result of the sum of the even-valued fibonacci" do
+      @num.fibonacci_even.must_equal 44
+    end
+  end
+
+end

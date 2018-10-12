@@ -16,6 +16,38 @@ class Multiples
 
 end
 
-multiples = Multiples.new(3, 5, 1000)
+#----------------Test------------------
 
-puts multiples.multiples_of
+require 'minitest/autorun'
+
+ class MultiplesTest < Minitest::Test
+
+   def setup
+     @number = Multiples.new(3, 5, 1000)
+   end
+
+   def test_instance_of_multiples
+     assert_instance_of(Multiples, @number)
+   end
+
+   def test_multiples_of
+     assert_equal(233168, @number.multiples_of)
+   end
+
+end
+
+#---------------TestSpecs---------------
+
+describe Multiples do
+
+  before do 
+    @number = Multiples.new(3, 5, 1000)
+  end
+
+  describe "when insert two numbers and a limit" do
+    it "must gets result of the sum of all the multiples of two number" do
+      @number.multiples_of.must_equal 233168
+    end
+  end
+
+end
